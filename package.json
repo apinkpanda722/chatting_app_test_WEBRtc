@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "devStart": "nodemon server.js"
+    "predev": "kill -9 $(lsof -i TCP:3000 | grep -i -E -o '\\s[0-9]+\\s') || true",
+    "dev": "nodemon server.js"
   },
   "keywords": [],
   "author": "",

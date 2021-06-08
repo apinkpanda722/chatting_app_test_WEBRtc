@@ -2,7 +2,7 @@ const socket = io("/");
 const videoGrid = document.getElementById("video-grid");
 const myPeer = new Peer();
 const myVideo = document.createElement("video");
-myVideo.muted = true;
+myVideo.muted = false;
 
 navigator.mediaDevices
   .getUserMedia({
