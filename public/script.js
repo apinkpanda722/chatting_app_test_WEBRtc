@@ -1,11 +1,10 @@
-const socket = io("/");
+const socket = io("/", { transport: ["polling"] });
 const videoGrid = document.getElementById("video-grid");
 const myPeer = new Peer();
 const myVideo = document.createElement("video");
 myVideo.muted = true;
 
 const peers = {};
-
 navigator.mediaDevices
   .getUserMedia({
     video: true,
@@ -21,6 +20,7 @@ navigator.mediaDevices
         addVideoStream(video, userVideoStream);
       });
     });
+
     socket.on("user-connected", (userId) => {
       connectToNewUser(userId, stream);
     });
